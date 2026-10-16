@@ -78,9 +78,10 @@ a{color:inherit}
 /* hero */
 .hero{padding-block:clamp(48px,8vw,96px) clamp(40px,6vw,72px)}
 .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,64px);align-items:center}
-@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+@media (max-width:900px){.hero .wrap{grid-template-columns:minmax(0,1fr)}}
+.hero .cta .btn{white-space:normal;text-align:center;line-height:1.25}
 .hero h1{font-size:clamp(38px,5.2vw,64px);font-weight:800}
-.hero h1 em{font-style:normal;color:var(--stamp);position:relative;white-space:nowrap}
+.hero h1 em{font-:normal;color:var(--stamp);position:relative;white-space:nowrap}
 .hero h1 em::after{content:"";position:absolute;left:-2%;right:-2%;bottom:.04em;height:.12em;background:var(--stamp);opacity:.25;border-radius:2px}
 .hero .lede{margin-top:22px;font-size:clamp(17px,1.6vw,19px);color:var(--muted);max-width:52ch}
 .hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
@@ -262,7 +263,7 @@ section{padding-block:clamp(56px,8vw,96px)}
 .field{display:flex;flex-direction:column;gap:6px;min-width:0}
 .field.full{grid-column:1/-1}
 .field label{font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;opacity:.75}
-.field label i{font-style:normal;opacity:.6;text-transform:none;letter-spacing:0}
+.field label i{font-:normal;opacity:.6;text-transform:none;letter-spacing:0}
 .field input,.field textarea{font:400 15px/1.4 var(--body);color:var(--paper);background:color-mix(in srgb,var(--paper) 8%,transparent);border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);border-radius:10px;padding:12px 13px;width:100%}
 .field textarea{min-height:120px;resize:vertical}
 .field input::placeholder,.field textarea::placeholder{color:var(--paper);opacity:.4}
@@ -281,13 +282,32 @@ footer{padding-block:36px 48px;font-size:13px;color:var(--muted)}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.menu-btn{display:none;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;flex:0 0 auto}
+.menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:18px;height:2px;background:currentColor;border-radius:2px;position:relative;transition:transform .2s}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0}
+.menu-btn span::before{top:-6px}
+.menu-btn span::after{top:6px}
+.menu-btn[aria-expanded="true"] span{background:transparent}
+.menu-btn[aria-expanded="true"] span::before{top:0;transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] span::after{top:0;transform:rotate(-45deg)}
+.links a{white-space:nowrap}
+section[id]{scroll-margin-top:84px}
+@media (max-width:900px){
+  .links{display:none}
+  .menu-btn{display:inline-flex}
+  .nav .wrap{position:relative}
+  .nav .btn{margin-left:auto}
+  .links.open{display:flex;flex-direction:column;gap:0;position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--line);padding:4px clamp(16px,4vw,40px) 12px;box-shadow:0 14px 24px -18px rgba(15,46,58,.5)}
+  .links.open a{padding:14px 0;font-size:17px;color:var(--ink);border-bottom:1px solid var(--line)}
+  .links.open a:last-child{border-bottom:0}
+}  
 </style>
 </head>
 <body>
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="#top"><span class="mark" aria-hidden="true"></span><span data-brand>Snelora</span></a>
-    <nav class="links" aria-label="Sections">
+    <nav class="links" id="siteLinks" aria-label="Sections">
       <a href="#pattern">How it works</a>
       <a href="#work">Work</a>
       <a href="#process">Process</a>
@@ -295,6 +315,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <a href="/pricing">Pricing</a>
     </nav>
     <a class="btn nav-cta" href="#contact">Book<span class="long">&nbsp;a workflow review</span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteLinks"><span></span></button>
   </div>
 </header>
 
@@ -747,6 +768,17 @@ document.getElementById("copy").addEventListener("click", function(){
       .catch(function(){ show("bad", "Your message couldn't be sent. Please try again, or email " + document.getElementById("email").textContent + "."); })
       .then(function(){ send.disabled = false; send.textContent = "Send message"; });
   });
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById("menuBtn"), l=document.getElementById("siteLinks");
+  if(!b||!l) return;
+  function set(o){ l.classList.toggle("open",o); b.setAttribute("aria-expanded",o?"true":"false"); b.setAttribute("aria-label",o?"Close menu":"Open menu"); }
+  b.addEventListener("click",function(){ set(!l.classList.contains("open")); });
+  l.addEventListener("click",function(e){ if(e.target.tagName==="A") set(false); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") set(false); });
+  document.addEventListener("click",function(e){ if(l.classList.contains("open") && !l.contains(e.target) && !b.contains(e.target)) set(false); });
 })();
 </script>
 </body>
