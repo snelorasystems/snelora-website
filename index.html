@@ -87,6 +87,8 @@ a{color:inherit}
 .hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
 .proof{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:34px;font-size:13px;color:var(--muted)}
 .proof b{color:var(--ink);font-weight:600}
+.demo-line{margin-top:16px;font-size:14px;color:var(--muted)}
+.demo-line a{color:var(--stamp);font-weight:600;white-space:nowrap}
 
 /* call demo */
 .desk{background:var(--sunk);border:1px solid var(--line);border-radius:18px;padding:14px}
@@ -331,6 +333,7 @@ section[id]{scroll-margin-top:84px}
           <a class="btn" href="#contact">Get a receptionist for your business</a>
           <a class="btn ghost" href="#work">See all five builds</a>
         </div>
+        <p class="demo-line">Hear it live: call our demo line, <a href="tel:+12896722407">289-672-2407</a> · <span style="white-space:nowrap">Free 7-day trial</span></p>
         <div class="proof">
           <span><b>24/7</b> answering</span>
           <span><b>Books into</b> your calendar</span>
@@ -483,6 +486,7 @@ section[id]{scroll-margin-top:84px}
         <div>
           <h2>Got a task you do fifty times a week?</h2>
           <p>Book a free 30-minute workflow review. Tell us a little about your business and we'll get back to you within one business day.</p>
+          <p>Want to try the AI receptionist? Ask for a free 7-day trial with unlimited minutes.</p>
           <div class="mail">
             <code id="email">info@snelorasystems.com</code>
             <button class="copy" id="copy" type="button">Copy email</button>
@@ -506,7 +510,7 @@ section[id]{scroll-margin-top:84px}
 <footer>
   <div class="wrap">
     <span>© 2026 Snelora Systems · Swift AI for small business · <a href="/privacy">Privacy</a></span>
-    <span>Greater Toronto Area, Ontario</span>
+    <span>Greater Toronto Area, Ontario · <a href="tel:+16138843961" style="white-space:nowrap">613-884-3961</a> · <a href="https://www.instagram.com/snelorasystems" rel="noopener" style="white-space:nowrap">Instagram @snelorasystems</a></span>
   </div>
 </footer>
 
@@ -518,12 +522,12 @@ section[id]{scroll-margin-top:84px}
   /* ---------- Portfolio ---------- */
   var projects = [
     {
-      product:"Voice", name:"AI Voice Receptionist", status:["s-live","Live, free 7-day trial"], featured:true,
+      product:"Voice", name:"AI Voice Receptionist", status:["s-build","In build"], featured:true,
       problem:"A missed call is often a missed booking, and most small offices can't keep someone on the phone all day.",
       what:["Answers the phone, handles common questions, books appointments straight into the calendar, and takes messages — any time of day.",
             "Anything urgent or out of scope goes to a real person. The build is tested as a fictional dental clinic, booking against a live test calendar. Try the simulated calls at the top of this page."],
       flow:[["In","Inbound phone call"],["AI","Answers, books, takes messages"],["You","Urgent calls escalated to staff"],["Out","Appointment on the calendar"]],
-      stack:["Retell AI","Cal.com","Voice AI"]
+      stack:["Retell AI","Google Calendar","Voice AI"]
     },
     {
       product:"for Home Services", name:"AI Systems Package for Home Service Businesses", status:["s-built","Package"],
