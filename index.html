@@ -437,8 +437,8 @@ section[id]{scroll-margin-top:var(--s800)}
       <div class="contact">
         <div>
           <h2>Got a task you do fifty times a week?</h2>
-          <p>Book a free 30 minute workflow review. Tell us a little about your business and we'll get back to you within one business day.</p>
-          <p>Want to try the AI receptionist? Ask for a free 7 day trial with unlimited minutes.</p>
+          <p>Book a free 30&nbsp;minute workflow review. Tell us a little about your business and we'll get back to you within one business day.</p>
+          <p>Want to try the AI receptionist? Ask for a free 7&nbsp;day trial with unlimited minutes.</p>
           <div class="mail">
             <code id="email">info@snelorasystems.com</code>
             <button class="copy" id="copy" type="button">Copy email</button>
@@ -446,9 +446,9 @@ section[id]{scroll-margin-top:var(--s800)}
         </div>
         <form class="lead-form" id="leadForm" action="https://formspree.io/f/xrperdgr" method="POST" novalidate>
           <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required placeholder="Jane Smith"><span class="err" id="e-name"></span></div>
-          <div class="field"><label for="f-org">Organization</label><input id="f-org" name="organization" autocomplete="organization" required placeholder="Smith Plumbing &amp; Heating"><span class="err" id="e-org"></span></div>
-          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required placeholder="jane@smithplumbing.ca"><span class="err" id="e-email"></span></div>
-          <div class="field"><label for="f-phone">Phone <i>(optional)</i></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="(905) 555-0123"><span class="err" id="e-phone"></span></div>
+          <div class="field"><label for="f-org">Organization</label><input id="f-org" name="organization" autocomplete="organization" required placeholder="Your business name"><span class="err" id="e-org"></span></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required placeholder="name@example.com"><span class="err" id="e-email"></span></div>
+          <div class="field"><label for="f-phone">Phone <i>(optional)</i></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="(905) 555 0123"><span class="err" id="e-phone"></span></div>
           <div class="field full"><label for="f-msg">Questions or what you'd like to automate</label><textarea id="f-msg" name="message" required placeholder="e.g. We miss a lot of calls while we're on jobs. Could an AI receptionist book appointments for us?"></textarea><span class="err" id="e-msg"></span></div>
           <div class="hp" aria-hidden="true"><label for="f-gotcha">Leave this empty</label><input id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off"></div>
           <div class="form-msg" id="formMsg" hidden></div>
@@ -688,7 +688,7 @@ document.getElementById("copy").addEventListener("click", function(){
   var fields = [
     ["f-name","e-name",function(v){ return v ? "" : "Please enter your name."; }],
     ["f-org","e-org",function(v){ return v ? "" : "Please enter your organization's name."; }],
-    ["f-email","e-email",function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? "" : "Please enter a valid email, like name@company.com."; }],
+    ["f-email","e-email",function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? "" : "Please enter a valid email, like name@example.com."; }],
     ["f-phone","e-phone",function(v){ return !v || v.replace(/\D/g,"").length >= 10 ? "" : "Please enter a 10 digit phone number, or leave it blank."; }],
     ["f-msg","e-msg",function(v){ return v ? "" : "Please add a question or a line about what you'd like to automate."; }]
   ];
