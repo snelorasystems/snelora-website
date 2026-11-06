@@ -1,0 +1,16 @@
+# Files in the repo root that must never be served as part of the website
+.git
+.gitignore
+.assetsignore
+wrangler.jsonc
+wrangler.toml
+package.json
+package-lock.json
+node_modules
+.wrangler
+.dev.vars*
+.env*
+.claude
+.agents
+marketing_context.md
+skills-lock.json
