@@ -11,13 +11,16 @@
 <meta property="og:description" content="Sam answers your clinic's calls 24/7, books into your calendar and sends urgent calls to staff. Try it free for 7 days.">
 <meta property="og:url" content="https://snelorasystems.com/dental">
 <meta property="og:site_name" content="Snelora Systems">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://snelorasystems.com/og-dental.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Snelora: AI voice receptionist for GTA dental clinics. Try Sam free for 7 days.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0F3B4C">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%230F3B4C'/%3E%3Cpath d='M10 16.5l4 4 8-9' stroke='%23BFE3E8' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@500;600;700&family=Karla:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -31,7 +34,7 @@
     {"@type":"Question","name":"Can Sam confirm whether we accept a patient's insurance?","acceptedAnswer":{"@type":"Answer","text":"Sam answers insurance questions in general terms. It doesn't confirm whether a specific provider is accepted; it takes a message for your team instead."}},
     {"@type":"Question","name":"How does booking work?","acceptedAnswer":{"@type":"Answer","text":"Sam books, reschedules and cancels appointments in your calendar using the caller's phone number. The patient gets a text confirmation and a reminder."}},
     {"@type":"Question","name":"How does the free trial work?","acceptedAnswer":{"@type":"Answer","text":"You get 7 days with unlimited minutes and no contract. Sam answers all your incoming calls 24/7 during the trial. We set it up with your hours, services and calendar, and you decide at the end whether to continue."}},
-    {"@type":"Question","name":"What does it cost after the trial?","acceptedAnswer":{"@type":"Answer","text":"Monthly plans have no contract: Starter is $199 a month for 500 minutes, Standard is $359 for 1,000 minutes and Pro is $599 for 1,800 minutes, in Canadian dollars before HST, plus a one time $250 setup fee. Annual plans are paid up front, save 10% and waive the setup fee. See full pricing."}},
+    {"@type":"Question","name":"What does it cost after the trial?","acceptedAnswer":{"@type":"Answer","text":"Monthly plans have no contract: Starter is $199 a month for 500 minutes, Standard is $359 for 1,000 minutes and Pro is $599 for 1,800 minutes, in Canadian dollars before HST, plus a one time $250 setup fee. Annual plans are paid up front, save 10% and waive the setup fee. Prices and terms may change for new clients; final terms are confirmed in your service agreement. See full pricing."}},
     {"@type":"Question","name":"What if we go over our minutes?","acceptedAnswer":{"@type":"Answer","text":"Extra minutes are $0.45 each. We message you at 80% of your minutes, and your line is never switched off."}},
     {"@type":"Question","name":"Where are you based?","acceptedAnswer":{"@type":"Answer","text":"We're based in the Greater Toronto Area. We're starting with dental clinics in Brampton, Mississauga, Toronto and Etobicoke."}}
   ]
@@ -57,6 +60,8 @@ h1,h2,h3,p{margin:0}
 @media (min-width:640px){.wrap{padding-inline:var(--s500)}}
 a{color:var(--accent)}
 :focus-visible{outline:2px solid var(--cta);outline-offset:3px;border-radius:4px}
+.ph{display:inline-flex;align-items:center;justify-content:center;font-style:normal;line-height:1}
+.ico{width:1em;height:1em;flex:none;fill:currentColor}
 .balance{text-wrap:balance}
 p,li,dd{text-wrap:pretty}
 
@@ -113,7 +118,7 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:v
   .menu-btn{display:inline-flex}
   header .wrap{position:relative}
   .nav-cta{margin-left:auto}
-  .links.open{display:flex;flex-direction:column;gap:0;position:absolute;left:0;right:0;top:100%;height:calc(100vh - 64px);background:rgba(15,59,76,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:var(--s200) var(--s200)}
+  .links.open{display:flex;flex-direction:column;gap:0;position:absolute;left:0;right:0;top:100%;height:calc(100vh - 64px);height:calc(100dvh - 64px);background:rgba(15,59,76,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:var(--s200) var(--s200)}
   .links.open a{padding:var(--s200) 0;font:500 18px/28px var(--head);color:var(--text);border-bottom:1px solid var(--line);animation:linkIn .5s var(--ease) both}
   .links.open a:nth-child(2){animation-delay:60ms}.links.open a:nth-child(3){animation-delay:120ms}.links.open a:nth-child(4){animation-delay:180ms}.links.open a:nth-child(5){animation-delay:240ms}
 }
@@ -235,8 +240,8 @@ section.alt{background:var(--bg-deep)}
 .no-js .reveal{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .reveal{transform:none;transition:opacity .3s linear}
-  .anim .checks li{transform:none;transition:opacity .3s linear}
+  .reveal{transform:none;transition:opacity .3s var(--ease)}
+  .anim .checks li{transform:none;transition:opacity .3s var(--ease)}
   .links.open a{animation:none}
   .btn,.btn:hover{transform:none}
   .tagline-text .w{transition:none}
@@ -250,6 +255,21 @@ section.alt{background:var(--bg-deep)}
 </head>
 <body class="no-js">
 <a class="skip button-sm" href="#main">Skip to content</a>
+<!-- Icons: Phosphor Icons regular (MIT License, Copyright (c) 2023 Phosphor Icons), inlined -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="ph-phone-call" viewBox="0 0 256 256"><path d="M144.27,45.93a8,8,0,0,1,9.8-5.66,86.22,86.22,0,0,1,61.66,61.66,8,8,0,0,1-5.66,9.8A8.23,8.23,0,0,1,208,112a8,8,0,0,1-7.73-5.94,70.35,70.35,0,0,0-50.33-50.33A8,8,0,0,1,144.27,45.93Zm-2.33,41.8c13.79,3.68,22.65,12.54,26.33,26.33A8,8,0,0,0,176,120a8.23,8.23,0,0,0,2.07-.27,8,8,0,0,0,5.66-9.8c-5.12-19.16-18.5-32.54-37.66-37.66a8,8,0,1,0-4.13,15.46Zm81.94,95.35A56.26,56.26,0,0,1,168,232C88.6,232,24,167.4,24,88A56.26,56.26,0,0,1,72.92,32.12a16,16,0,0,1,16.62,9.52l21.12,47.15,0,.12A16,16,0,0,1,109.39,104c-.18.27-.37.52-.57.77L88,129.45c7.49,15.22,23.41,31,38.83,38.51l24.34-20.71a8.12,8.12,0,0,1,.75-.56,16,16,0,0,1,15.17-1.4l.13.06,47.11,21.11A16,16,0,0,1,223.88,183.08Zm-15.88-2s-.07,0-.11,0h0l-47-21.05-24.35,20.71a8.44,8.44,0,0,1-.74.56,16,16,0,0,1-15.75,1.14c-18.73-9.05-37.4-27.58-46.46-46.11a16,16,0,0,1,1-15.7,6.13,6.13,0,0,1,.57-.77L96,95.15l-21-47a.61.61,0,0,1,0-.12A40.2,40.2,0,0,0,40,88,128.14,128.14,0,0,0,168,216,40.21,40.21,0,0,0,208,181.07Z"/></symbol>
+  <symbol id="ph-headset" viewBox="0 0 256 256"><path d="M201.89,54.66A103.43,103.43,0,0,0,128.79,24H128A104,104,0,0,0,24,128v56a24,24,0,0,0,24,24H64a24,24,0,0,0,24-24V144a24,24,0,0,0-24-24H40.36A88.12,88.12,0,0,1,190.54,65.93,87.39,87.39,0,0,1,215.65,120H192a24,24,0,0,0-24,24v40a24,24,0,0,0,24,24h24a24,24,0,0,1-24,24H136a8,8,0,0,0,0,16h56a40,40,0,0,0,40-40V128A103.41,103.41,0,0,0,201.89,54.66ZM64,136a8,8,0,0,1,8,8v40a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V136Zm128,56a8,8,0,0,1-8-8V144a8,8,0,0,1,8-8h24v56Z"/></symbol>
+  <symbol id="ph-check" viewBox="0 0 256 256"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></symbol>
+  <symbol id="ph-moon-stars" viewBox="0 0 256 256"><path d="M240,96a8,8,0,0,1-8,8H216v16a8,8,0,0,1-16,0V104H184a8,8,0,0,1,0-16h16V72a8,8,0,0,1,16,0V88h16A8,8,0,0,1,240,96ZM144,56h8v8a8,8,0,0,0,16,0V56h8a8,8,0,0,0,0-16h-8V32a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16Zm72.77,97a8,8,0,0,1,1.43,8A96,96,0,1,1,95.07,37.8a8,8,0,0,1,10.6,9.06A88.07,88.07,0,0,0,209.14,150.33,8,8,0,0,1,216.77,153Zm-19.39,14.88c-1.79.09-3.59.14-5.38.14A104.11,104.11,0,0,1,88,64c0-1.79,0-3.59.14-5.38A80,80,0,1,0,197.38,167.86Z"/></symbol>
+  <symbol id="ph-calendar-check" viewBox="0 0 256 256"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-38.34-85.66a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L116,164.69l42.34-42.35A8,8,0,0,1,169.66,122.34Z"/></symbol>
+  <symbol id="ph-chat-circle-text" viewBox="0 0 256 256"><path d="M168,112a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,112Zm-8,24H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16Zm72-8A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-16,0A88,88,0,1,0,51.81,172.06a8,8,0,0,1,.66,6.54L40,216,77.4,203.53a7.85,7.85,0,0,1,2.53-.42,8,8,0,0,1,4,1.08A88,88,0,0,0,216,128Z"/></symbol>
+  <symbol id="ph-phone-transfer" viewBox="0 0 256 256"><path d="M136,72a8,8,0,0,1,8-8h52.69L178.34,45.66a8,8,0,0,1,11.32-11.32l32,32a8,8,0,0,1,0,11.32l-32,32a8,8,0,0,1-11.32-11.32L196.69,80H144A8,8,0,0,1,136,72Zm87.87,111.08A56.24,56.24,0,0,1,168,232C88.6,232,24,167.4,24,88A56.24,56.24,0,0,1,72.92,32.13a16,16,0,0,1,16.62,9.51l21.12,47.15,0,.12A16,16,0,0,1,109.39,104c-.18.27-.37.52-.57.77L88,129.45c7.49,15.22,23.41,31,38.83,38.51l24.34-20.71a8.12,8.12,0,0,1,.75-.56,16,16,0,0,1,15.18-1.4l.11.06,47.11,21.11A16,16,0,0,1,223.87,183.08Zm-15.87-2s-.07,0-.11,0h0l-47-21.05-24.35,20.71a8,8,0,0,1-.74.56,16,16,0,0,1-15.75,1.14c-18.73-9-37.4-27.58-46.46-46.11a16,16,0,0,1,1-15.7,7,7,0,0,1,.57-.77L96,95.15l-21-47a.61.61,0,0,1,0-.12A40.2,40.2,0,0,0,40,88,128.14,128.14,0,0,0,168,216,40.21,40.21,0,0,0,208,181.07Z"/></symbol>
+  <symbol id="ph-first-aid-kit" viewBox="0 0 256 256"><path d="M216,56H176V48a24,24,0,0,0-24-24H104A24,24,0,0,0,80,48v8H40A16,16,0,0,0,24,72V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V72A16,16,0,0,0,216,56ZM96,48a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM216,200H40V72H216V200Zm-56-64a8,8,0,0,1-8,8H136v16a8,8,0,0,1-16,0V144H104a8,8,0,0,1,0-16h16V112a8,8,0,0,1,16,0v16h16A8,8,0,0,1,160,136Z"/></symbol>
+  <symbol id="ph-x" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></symbol>
+  <symbol id="ph-wrench" viewBox="0 0 256 256"><path d="M226.76,69a8,8,0,0,0-12.84-2.88l-40.3,37.19-17.23-3.7-3.7-17.23,37.19-40.3A8,8,0,0,0,187,29.24,72,72,0,0,0,88,96,72.34,72.34,0,0,0,94,124.94L33.79,177c-.15.12-.29.26-.43.39a32,32,0,0,0,45.26,45.26c.13-.13.27-.28.39-.42L131.06,162A72,72,0,0,0,232,96,71.56,71.56,0,0,0,226.76,69ZM160,152a56.14,56.14,0,0,1-27.07-7,8,8,0,0,0-9.92,1.77L67.11,211.51a16,16,0,0,1-22.62-22.62L109.18,133a8,8,0,0,0,1.77-9.93,56,56,0,0,1,58.36-82.31l-31.2,33.81a8,8,0,0,0-1.94,7.1L141.83,108a8,8,0,0,0,6.14,6.14l26.35,5.66a8,8,0,0,0,7.1-1.94l33.81-31.2A56.06,56.06,0,0,1,160,152Z"/></symbol>
+  <symbol id="ph-shield-check" viewBox="0 0 256 256"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"/></symbol>
+  <symbol id="ph-envelope-simple" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"/></symbol>
+</svg>
 <header><div class="wrap">
   <a class="brand" href="/"><span class="mark" aria-hidden="true"></span>Snelora</a>
   <nav class="links body-3" id="siteLinks" aria-label="Main">
@@ -275,7 +295,7 @@ section.alt{background:var(--bg-deep)}
           <a class="btn button-lg" href="#trial">Try Sam free for 7 days</a>
           <span class="risk body-6">Unlimited minutes. No contract.</span>
         </div>
-        <p class="proof-line body-3"><i class="ph ph-phone-call" aria-hidden="true"></i><span>Hear Sam live: <a href="tel:+12896722407">289-672-2407</a> <span class="muted">(real call, fictional test clinic)</span></span></p>
+        <p class="proof-line body-3"><i class="ph" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ph-phone-call"/></svg></i><span>Hear Sam live: <a href="tel:+12896722407">289-672-2407</a> <span class="muted">(real call, fictional test clinic)</span></span></p>
         <blockquote class="founder" id="founder">
           <p class="body-6">"I've spent over 10 years in software quality, much of it in healthcare tech, where mistakes aren't an option. Local businesses are great at what they do, but their phones ring while they're busy doing it. So I built Sam."</p>
           <cite class="caption-1">Founder, Snelora Systems</cite>
@@ -284,7 +304,7 @@ section.alt{background:var(--bg-deep)}
 
       <figure class="callcard" id="callcard" aria-label="Illustration of what Sam does on a call to a fictional test clinic" style="margin:0">
         <div class="callcard-top">
-          <span class="callcard-ico" aria-hidden="true"><i class="ph ph-headset"></i></span>
+          <span class="callcard-ico" aria-hidden="true"><i class="ph"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ph-headset"/></svg></i></span>
           <div>
             <p class="title-3">Incoming call</p>
             <p class="body-6 muted">Maple Dental Clinic, Brampton</p>
@@ -292,11 +312,11 @@ section.alt{background:var(--bg-deep)}
         </div>
         <span class="callcard-tag caption-3">Illustration · fictional test clinic</span>
         <ul class="checks body-6">
-          <li><i class="ph ph-check" aria-hidden="true"></i><span>Tells the caller it's the clinic's AI assistant and that calls may be recorded</span></li>
-          <li><i class="ph ph-check" aria-hidden="true"></i><span>Answers questions about hours, parking and new patients</span></li>
-          <li><i class="ph ph-check" aria-hidden="true"></i><span>Books the appointment in the clinic's calendar</span></li>
-          <li><i class="ph ph-check" aria-hidden="true"></i><span>Texts the patient a confirmation and a reminder</span></li>
-          <li><i class="ph ph-check" aria-hidden="true"></i><span>Emails any message to the team, marked urgent for emergencies</span></li>
+          <li><i class="ph" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ph-check"/></svg></i><span>Tells the caller it's the clinic's AI assistant and that calls may be recorded</span></li>
+          <li><i class="ph" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ph-check"/></svg></i><span>Answers questions about hours, parking and new patients</span></li>
+          <li><i class="ph" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ph-check"/></svg></i><span>Books the appointment in the clinic's calendar</span></li>
+          <li><i class="ph" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ph-check"/></svg></i><span>Texts the patient a confirmation and a reminder</span></li>
+          <li><i class="ph" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ph-check"/></svg></i><span>Emails any message to the team, marked urgent for emergencies</span></li>
         </ul>
       </figure>
     </div>
@@ -321,11 +341,11 @@ section.alt{background:var(--bg-deep)}
         <h2 class="heading-2 balance" id="benefits-h">Your phones covered, your team focused</h2>
       </div>
       <ul class="benefits reveal">
-        <li><span class="b-ico" aria-hidden="true"><i class="ph ph-moon-stars"></i></span><div><h3 class="heading-6">Calls answered after hours</h3><p class="body-3 muted">Evenings, weekends and holidays, Sam answers and books the appointment.</p></div></li>
-        <li><span class="b-ico" aria-hidden="true"><i class="ph ph-calendar-check"></i></span><div><h3 class="heading-6">Bookings go straight into your calendar</h3><p class="body-3 muted">Sam books, reschedules and cancels using the caller's phone number, then texts the patient a confirmation and a reminder.</p></div></li>
-        <li><span class="b-ico" aria-hidden="true"><i class="ph ph-chat-circle-text"></i></span><div><h3 class="heading-6">Fewer interruptions at the front desk</h3><p class="body-3 muted">Sam answers questions about hours, location, parking, services, price ranges, new patients and insurance in general terms. Your team stays with the patient in front of them.</p></div></li>
-        <li><span class="b-ico" aria-hidden="true"><i class="ph ph-phone-transfer"></i></span><div><h3 class="heading-6">Urgent calls reach a person</h3><p class="body-3 muted">While you're open, Sam transfers urgent calls to your staff. Otherwise it emails your team a message marked urgent.</p></div></li>
-        <li><span class="b-ico" aria-hidden="true"><i class="ph ph-first-aid-kit"></i></span><div><h3 class="heading-6">Emergencies handled with care</h3><p class="body-3 muted">Sam gives a safety message: call 911 or go to the ER for spreading swelling, fever, or trouble breathing or swallowing. Then it takes an urgent message or offers your earliest emergency exam slot. It never gives dental advice.</p></div></li>
+        <li><span class="b-ico" aria-hidden="true"><i class="ph"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ph-moon-stars"/></svg></i></span><div><h3 class="heading-6">Calls answered after hours</h3><p class="body-3 muted">Evenings, weekends and holidays, Sam answers and books the appointment.</p></div></li>
+        <li><span class="b-ico" aria-hidden="true"><i class="ph"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ph-calendar-check"/></svg></i></span><div><h3 class="heading-6">Bookings go straight into your calendar</h3><p class="body-3 muted">Sam books, reschedules and cancels using the caller's phone number, then texts the patient a confirmation and a reminder.</p></div></li>
+        <li><span class="b-ico" aria-hidden="true"><i class="ph"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ph-chat-circle-text"/></svg></i></span><div><h3 class="heading-6">Fewer interruptions at the front desk</h3><p class="body-3 muted">Sam answers questions about hours, location, parking, services, price ranges, new patients and insurance in general terms. Your team stays with the patient in front of them.</p></div></li>
+        <li><span class="b-ico" aria-hidden="true"><i class="ph"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ph-phone-transfer"/></svg></i></span><div><h3 class="heading-6">Urgent calls reach a person</h3><p class="body-3 muted">While you're open, Sam transfers urgent calls to your staff. Otherwise it emails your team a message marked urgent.</p></div></li>
+        <li><span class="b-ico" aria-hidden="true"><i class="ph"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ph-first-aid-kit"/></svg></i></span><div><h3 class="heading-6">Emergencies handled with care</h3><p class="body-3 muted">Sam gives a safety message: call 911 or go to the ER for spreading swelling, fever, or trouble breathing or swallowing. Then it takes an urgent message or offers your earliest emergency exam slot. It never gives dental advice.</p></div></li>
       </ul>
     </div>
   </section>
@@ -362,7 +382,7 @@ section.alt{background:var(--bg-deep)}
       </div>
       <div class="willwont reveal">
         <div class="ww will">
-          <h3 class="title-2"><i class="ph ph-check" aria-hidden="true"></i> Sam will</h3>
+          <h3 class="title-2"><i class="ph" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ph-check"/></svg></i> Sam will</h3>
           <ul class="body-3">
             <li>Tell every caller it's your clinic's AI assistant, and that calls may be recorded</li>
             <li>Book, reschedule and cancel appointments in your calendar</li>
@@ -372,7 +392,7 @@ section.alt{background:var(--bg-deep)}
           </ul>
         </div>
         <div class="ww wont">
-          <h3 class="title-2"><i class="ph ph-x" aria-hidden="true"></i> Sam won't</h3>
+          <h3 class="title-2"><i class="ph" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ph-x"/></svg></i> Sam won't</h3>
           <ul class="body-3">
             <li>Give dental or medical advice, diagnose, or suggest medication</li>
             <li>Confirm whether a specific insurance provider is accepted</li>
@@ -386,7 +406,7 @@ section.alt{background:var(--bg-deep)}
           <h3 class="heading-4 balance" style="margin-top:var(--s200)">Hear Sam for yourself</h3>
           <p class="body-3 muted" style="margin-top:var(--s75)">Call our demo line and talk to Sam the way a patient would. Sam answers for Maple Dental Clinic, our fictional test clinic. Then <a href="#founder">read why we built Sam</a>.</p>
         </div>
-        <a class="demo-num heading-4" href="tel:+12896722407"><i class="ph ph-phone-call" aria-hidden="true"></i> 289-672-2407</a>
+        <a class="demo-num heading-4" href="tel:+12896722407"><i class="ph" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ph-phone-call"/></svg></i> 289-672-2407</a>
       </div>
     </div>
   </section>
@@ -407,7 +427,7 @@ section.alt{background:var(--bg-deep)}
         <details><summary class="title-2">Can Sam confirm whether we accept a patient's insurance?</summary><p class="body-3 muted">Sam answers insurance questions in general terms. It doesn't confirm whether a specific provider is accepted; it takes a message for your team instead.</p></details>
         <details><summary class="title-2">How does booking work?</summary><p class="body-3 muted">Sam books, reschedules and cancels appointments in your calendar using the caller's phone number. The patient gets a text confirmation and a reminder.</p></details>
         <details><summary class="title-2">How does the free trial work?</summary><p class="body-3 muted">You get 7 days with unlimited minutes and no contract. Sam answers all your incoming calls 24/7 during the trial. We set it up with your hours, services and calendar, and you decide at the end whether to continue.</p></details>
-        <details><summary class="title-2">What does it cost after the trial?</summary><p class="body-3 muted">Monthly plans have no contract: Starter is $199 a month for 500 minutes, Standard is $359 for 1,000 minutes and Pro is $599 for 1,800 minutes, in Canadian dollars before HST, plus a one time $250 setup fee. Annual plans are paid up front, save 10% and waive the setup fee. <a href="/pricing">See full pricing</a>.</p></details>
+        <details><summary class="title-2">What does it cost after the trial?</summary><p class="body-3 muted">Monthly plans have no contract: Starter is $199 a month for 500 minutes, Standard is $359 for 1,000 minutes and Pro is $599 for 1,800 minutes, in Canadian dollars before HST, plus a one time $250 setup fee. Annual plans are paid up front, save 10% and waive the setup fee. Prices and terms may change for new clients; final terms are confirmed in your service agreement. <a href="/pricing">See full pricing</a>.</p></details>
         <details><summary class="title-2">What if we go over our minutes?</summary><p class="body-3 muted">Extra minutes are $0.45 each. We message you at 80% of your minutes, and your line is never switched off.</p></details>
         <details><summary class="title-2">Where are you based?</summary><p class="body-3 muted">We're based in the Greater Toronto Area. We're starting with dental clinics in Brampton, Mississauga, Toronto and Etobicoke.</p></details>
       </div>
@@ -422,17 +442,17 @@ section.alt{background:var(--bg-deep)}
         <h2 class="heading-2 balance" id="trial-h" style="margin-top:var(--s100)">Try Sam free for 7 days</h2>
         <p class="body-3 muted" style="margin-top:var(--s200)">Unlimited minutes. No contract. We set Sam up with your hours, services and calendar, and Sam answers all your incoming calls 24/7 during the trial. At the end, you decide whether to continue.</p>
         <ul class="trial-points body-3">
-          <li><i class="ph ph-wrench" aria-hidden="true"></i>Set up and tested for you</li>
-          <li><i class="ph ph-shield-check" aria-hidden="true"></i>No contract, stop any time</li>
-          <li><i class="ph ph-envelope-simple" aria-hidden="true"></i>We reply within one business day</li>
+          <li><i class="ph" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ph-wrench"/></svg></i>Set up and tested for you</li>
+          <li><i class="ph" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ph-shield-check"/></svg></i>No contract, stop any time</li>
+          <li><i class="ph" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#ph-envelope-simple"/></svg></i>We reply within one business day</li>
         </ul>
-        <p class="body-6 muted" style="margin-top:var(--s300)">Prefer to talk first? Call <a href="tel:+16477636459" style="white-space:nowrap">647-763-6459</a> or email <a href="mailto:info@snelorasystems.com">info@snelorasystems.com</a>.</p>
+        <p class="body-6 muted" style="margin-top:var(--s300)">Prefer to talk first? Call <a href="tel:+16477636459" style="white-space:nowrap">647-763-6459</a> or email <a href="mailto:info@snelorasystems.com" style="white-space:nowrap">info@snelorasystems.com</a>.</p>
       </div>
 
-      <form class="trial-form reveal" id="trialForm" novalidate>
+      <form class="trial-form reveal" id="trialForm" action="https://formspree.io/f/xrperdgr" method="POST" novalidate>
         <div class="field"><label class="title-4" for="t-name">Your name</label><input class="body-3" id="t-name" name="name" autocomplete="name" required placeholder="Priya Sharma"><span class="err caption-5" id="te-name"></span></div>
-        <div class="field"><label class="title-4" for="t-clinic">Clinic name</label><input class="body-3" id="t-clinic" name="organization" autocomplete="organization" required placeholder="Lakeview Family Dentistry"><span class="err caption-5" id="te-clinic"></span></div>
-        <div class="field"><label class="title-4" for="t-email">Email</label><input class="body-3" id="t-email" name="email" type="email" autocomplete="email" required placeholder="office@yourclinic.ca"><span class="err caption-5" id="te-email"></span></div>
+        <div class="field"><label class="title-4" for="t-clinic">Clinic name</label><input class="body-3" id="t-clinic" name="organization" autocomplete="organization" required placeholder="Your clinic's name"><span class="err caption-5" id="te-clinic"></span></div>
+        <div class="field"><label class="title-4" for="t-email">Email</label><input class="body-3" id="t-email" name="email" type="email" autocomplete="email" required placeholder="office@example.com"><span class="err caption-5" id="te-email"></span></div>
         <div class="field"><label class="title-4" for="t-phone">Phone <span class="muted">(optional)</span></label><input class="body-3" id="t-phone" name="phone" type="tel" autocomplete="tel" placeholder="(905) 555 0123"><span class="err caption-5" id="te-phone"></span></div>
         <div class="field full"><label class="title-4" for="t-msg">Anything we should know? <span class="muted">(optional)</span></label><textarea class="body-3" id="t-msg" name="message" placeholder="e.g. We'd like help with after hours calls and new patient bookings."></textarea></div>
         <input type="hidden" name="source" value="dental-landing">
@@ -498,7 +518,7 @@ var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var fields=[
     ["t-name","te-name",function(v){ return v ? "" : "Please enter your name."; }],
     ["t-clinic","te-clinic",function(v){ return v ? "" : "Please enter your clinic's name."; }],
-    ["t-email","te-email",function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? "" : "Please enter a valid email, like office@yourclinic.ca."; }],
+    ["t-email","te-email",function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? "" : "Please enter a valid email, like office@example.com."; }],
     ["t-phone","te-phone",function(v){ return !v || v.replace(/\D/g,"").length >= 10 ? "" : "Please enter a 10 digit phone number, or leave it blank."; }]
   ];
   function show(kind,text){ msg.hidden=false; msg.className="form-msg body-6 "+kind; msg.textContent=text; }
