@@ -258,7 +258,7 @@ section{padding-block:var(--s700)}
 .form-msg.ok{background:rgba(142,211,219,.16);color:var(--text)}
 .form-msg.bad{background:rgba(255,180,168,.14);color:var(--bad)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-section[id]{scroll-margin-top:var(--s800)}
+.track.jump .ph .more,.track.jump .ph .panel,.track.jump .ph .dotn,.track.jump .ph h3{transition:none!important}
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -672,7 +672,38 @@ document.getElementById("copy").addEventListener("click", function(){
     var live = Math.min(Math.max(line - tr.top, 0), tr.height - 28);
     fill.style.height = Math.max(target, Math.min(live, tr.height - 28)) + "px";
   }
-  function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(update); } }
+  var hold = false, holdTimer = null;
+  function onScroll(){ if(!hold && !ticking){ ticking = true; requestAnimationFrame(update); } }
+
+  /* Jumping to a section below the timeline (e.g. the contact form) would otherwise
+     open each phase mid-scroll, growing the page and stopping short of the target.
+     So open every phase instantly first, pause scroll updates until the jump settles. */
+  function openAll(){
+    track.classList.add("jump");
+    items.forEach(function(el,i){ el.classList.add("on"); el.classList.toggle("done", i < items.length - 1); });
+    active = items.length - 1;
+    num.textContent = active; name.textContent = phases[active][1]; bar.style.width = "100%";
+    fill.style.height = "calc(100% - 28px)";
+    void track.offsetHeight;
+    requestAnimationFrame(function(){ track.classList.remove("jump"); });
+  }
+  function belowTrack(el){ return el && (track.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING) && !track.contains(el); }
+  function release(){ clearTimeout(holdTimer); window.removeEventListener("scrollend", release); hold = false; update(); }
+  function holdUntilSettled(ms){
+    hold = true; clearTimeout(holdTimer);
+    window.addEventListener("scrollend", release);
+    holdTimer = setTimeout(release, ms);
+  }
+  function targetOf(href){
+    if(!href) return null;
+    var m = href.match(/^(?:\/(?:index\.html)?)?#([\w-]+)$/);
+    return m ? document.getElementById(m[1]) : null;
+  }
+  document.addEventListener("click", function(e){
+    var a = e.target.closest && e.target.closest("a[href]");
+    var t = a && targetOf(a.getAttribute("href"));
+    if(belowTrack(t)){ openAll(); holdUntilSettled(1500); }
+  }, true);
 
   if(reduce || !("requestAnimationFrame" in window)){
     items.forEach(function(el){ el.classList.add("on"); });
@@ -681,7 +712,17 @@ document.getElementById("copy").addEventListener("click", function(){
   }
   window.addEventListener("scroll", onScroll, {passive:true});
   window.addEventListener("resize", onScroll);
-  update();
+
+  /* Arriving from another page with a link like /#contact */
+  var arrival = location.hash && targetOf(location.hash);
+  if(belowTrack(arrival)){
+    openAll(); holdUntilSettled(2500);
+    var land = function(){ arrival.scrollIntoView({ behavior: "instant", block: "start" }); };
+    requestAnimationFrame(land);
+    window.addEventListener("load", land, { once: true });
+  } else {
+    update();
+  }
 })();
 
 /* ---------- Contact form ----------
