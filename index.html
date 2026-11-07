@@ -272,7 +272,13 @@ section{padding-block:var(--s700)}
     <a href="#work">Work</a>
     <a href="#process">Process</a>
     <a href="#about">About</a>
-    <a href="/pricing">Pricing</a>
+    <div class="dd">
+      <button class="dd-btn" type="button" aria-expanded="false" aria-controls="ddPanel">AI receptionist <svg class="dd-chev" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg></button>
+      <div class="dd-panel" id="ddPanel">
+        <a href="/dental"><span class="dd-ico"><svg viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M171,71.42,149.54,80,171,88.57A8,8,0,1,1,165,103.42L128,88.61,91,103.42A8,8,0,1,1,85,88.57L106.46,80,85,71.42A8,8,0,1,1,91,56.57l37,14.81,37-14.81A8,8,0,1,1,171,71.42Zm53,8.33c0,42.72-8,75.4-14.69,95.28-8.73,25.8-20.63,45.49-32.65,54a15.69,15.69,0,0,1-15.95,1.41,16.09,16.09,0,0,1-9.18-13.36C150.68,205.58,146.48,168,128,168s-22.68,37.59-23.53,49.11a16.09,16.09,0,0,1-16,14.9,15.67,15.67,0,0,1-9.13-2.95c-12-8.53-23.92-28.22-32.65-54C40,155.15,32,122.47,32,79.75A56,56,0,0,1,88,24h80A56,56,0,0,1,224,79.75Zm-16,0A40,40,0,0,0,168,40H88A40,40,0,0,0,48,79.76c0,40.55,7.51,71.4,13.85,90.14,11.05,32.66,23,43.37,26.61,46C91.57,174.67,105.59,152,128,152s36.45,22.71,39.49,63.94h0c3.6-2.59,15.57-13.26,26.66-46C200.49,151.16,208,120.31,208,79.76Z"/></svg></span><span><b>Dental clinics</b><small>AI receptionist for GTA dental clinics. Answers calls 24/7 and books into your calendar.</small></span></a>
+        <a href="/pricing"><span class="dd-ico"><svg viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M243.31,136,144,36.69A15.86,15.86,0,0,0,132.69,32H40a8,8,0,0,0-8,8v92.69A15.86,15.86,0,0,0,36.69,144L136,243.31a16,16,0,0,0,22.63,0l84.68-84.68a16,16,0,0,0,0-22.63Zm-96,96L48,132.69V48h84.69L232,147.31ZM96,84A12,12,0,1,1,84,72,12,12,0,0,1,96,84Z"/></svg></span><span><b>Pricing</b><small>Plans from $199 a month. Free 7 day trial, no contract.</small></span></a>
+      </div>
+    </div>
   </nav>
   <a class="btn nav-cta button-sm" href="#contact"><span class="cta-lg">Book a Demo</span><span class="cta-sm">Book</span></a>
   <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteLinks"><span></span></button>
@@ -767,16 +773,6 @@ document.getElementById("copy").addEventListener("click", function(){
   });
 })();
 </script>
-<script>
-(function(){
-  var b=document.getElementById("menuBtn"), l=document.getElementById("siteLinks");
-  if(!b||!l) return;
-  function set(o){ l.classList.toggle("open",o); b.setAttribute("aria-expanded",o?"true":"false"); b.setAttribute("aria-label",o?"Close menu":"Open menu"); }
-  b.addEventListener("click",function(){ set(!l.classList.contains("open")); });
-  l.addEventListener("click",function(e){ if(e.target.tagName==="A") set(false); });
-  document.addEventListener("keydown",function(e){ if(e.key==="Escape") set(false); });
-  document.addEventListener("click",function(e){ if(l.classList.contains("open") && !l.contains(e.target) && !b.contains(e.target)) set(false); });
-})();
-</script>
+<script src="/site.js" defer></script>
 </body>
 </html>

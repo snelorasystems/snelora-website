@@ -85,12 +85,46 @@ p,li,dd{text-wrap:pretty}
   .menu-btn{display:inline-flex}
   .site-head .wrap{position:relative}
   .nav-cta{margin-left:auto}
-  .links.open{display:flex;flex-direction:column;gap:0;position:absolute;left:0;right:0;top:100%;height:calc(100vh - 64px);height:calc(100dvh - 64px);background:rgba(15,59,76,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:var(--s200)}
+  .links.open{display:flex;flex-direction:column;gap:0;position:absolute;left:0;right:0;top:100%;height:calc(100vh - 64px);height:calc(100dvh - 64px);background:var(--bg);padding:var(--s200)}
   .links.open a{padding:var(--s200) 0;font:500 18px/28px var(--head);color:var(--text);border-bottom:1px solid var(--line);animation:linkIn .5s var(--ease) both}
   .links.open a:nth-child(2){animation-delay:60ms}.links.open a:nth-child(3){animation-delay:120ms}.links.open a:nth-child(4){animation-delay:180ms}.links.open a:nth-child(5){animation-delay:240ms}
 }
 @keyframes linkIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 @media (max-width:380px){.cta-lg{display:none}.cta-sm{display:inline}.site-head .wrap{gap:var(--s100)}}
+
+/* Nav dropdown: "AI receptionist" (Dental clinics, Pricing) */
+.links{align-items:center}
+.dd{position:relative}
+.dd-btn{display:inline-flex;align-items:center;gap:var(--s50);background:none;border:0;padding:0;font:inherit;color:var(--text-2);cursor:pointer;white-space:nowrap;transition:color .3s var(--ease)}
+.dd-btn:hover,.dd.open .dd-btn{color:var(--text)}
+.dd.current .dd-btn{color:var(--text);font-weight:600}
+.dd-chev{width:14px;height:14px;fill:currentColor;transition:transform .5s var(--ease)}
+.dd.open .dd-chev{transform:rotate(180deg)}
+.dd-panel{position:absolute;top:calc(100% + 18px);left:50%;width:380px;padding:var(--s75);background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 20px 44px -18px rgba(0,0,0,.6);opacity:0;visibility:hidden;transform:translate(-50%,8px);transition:opacity .3s var(--ease),transform .5s var(--ease),visibility 0s linear .3s;z-index:20}
+.dd.open .dd-panel{opacity:1;visibility:visible;transform:translate(-50%,0);transition:opacity .3s var(--ease),transform .5s var(--ease),visibility 0s}
+.dd-panel::before{content:"";position:absolute;left:0;right:0;top:-20px;height:20px}
+.links .dd-panel a{display:flex;gap:var(--s100);align-items:flex-start;padding:var(--s100);border-radius:8px;text-decoration:none;color:var(--text);white-space:normal;transition:background-color .3s var(--ease)}
+.links .dd-panel a:hover,.links .dd-panel a:focus-visible{background:var(--accent-soft);color:var(--text)}
+.dd-panel a[aria-current="page"] b{color:var(--accent)}
+.dd-panel b{display:block;font:600 16px/24px var(--head)}
+.dd-panel small{display:block;font-size:14px;line-height:20px;color:var(--text-2)}
+.dd-ico{flex:0 0 40px;width:40px;height:40px;border-radius:8px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+.dd-ico svg{width:22px;height:22px;fill:currentColor}
+@media (max-width:900px){
+  .links.open{align-items:stretch;overflow-y:auto}
+  .links.open .dd{border-bottom:1px solid var(--line);animation:linkIn .5s var(--ease) both;animation-delay:240ms}
+  .links.open .dd-btn{display:flex;width:100%;justify-content:space-between;padding:var(--s200) 0;font:500 18px/28px var(--head);color:var(--text)}
+  .links.open .dd-chev{width:16px;height:16px;color:var(--accent)}
+  .links.open .dd-panel{position:static;display:none;width:auto;padding:0 0 var(--s100) var(--s200);background:none;border:0;box-shadow:none;opacity:1;visibility:visible;transform:none;transition:none}
+  .links.open .dd.open .dd-panel{display:block}
+  .links.open .dd-panel::before{display:none}
+  .links.open .dd-panel a{padding:var(--s100) 0;border-bottom:0;font:inherit;animation:none}
+  .links.open .dd-panel a:hover,.links.open .dd-panel a:focus-visible,.links.open .dd-panel a[aria-current="page"]{background:none}
+  .links.open .dd-panel a[aria-current="page"] b{color:var(--accent)}
+  .links.open .dd-panel b{font:500 16px/24px var(--head)}
+  .links.open .dd-ico{flex-basis:32px;width:32px;height:32px}
+  .links.open .dd-ico svg{width:18px;height:18px}
+}
 
 /* Footer */
 .site-foot{border-top:1px solid var(--line);padding-block:var(--s300) var(--s500);color:var(--text-3)}
@@ -99,6 +133,7 @@ p,li,dd{text-wrap:pretty}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .links.open a{animation:none}
+  .links.open a,.links.open .dd{animation:none}
   .btn,.btn:hover{transform:none}
+  .dd-panel,.dd.open .dd-panel,.dd-chev{transition:none}
 }
